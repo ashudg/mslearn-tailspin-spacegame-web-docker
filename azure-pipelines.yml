@@ -21,8 +21,8 @@ stages:
         command: buildAndPush
         buildContext: $(Build.Repository.LocalPath)
         repository: $(webRepository)
-        dockerfile: '$(Build.SourcesDirectory)/Tailspin.SpaceGame.Web/Dockerfile'
-        containerRegistry: 'Container Registry Connection'
+        dockerfile: '$(Build.SourcesDirectory)/tailspin-space-game-app/Dockerfile'
+        containerRegistry: 'tailspin-space-game-cr-connection'
         tags: |
           $(tag)
 
@@ -40,5 +40,5 @@ stages:
     - task: AzureWebAppContainer@1
       inputs:
        appName: $(WebAppName)
-       azureSubscription: 'Resource Manager - Tailspin - Space Game'
+       azureSubscription: 'tailspin-space-game-resource-manager'
        imageName: $(RegistryName)/$(webRepository):$(build.buildId)
