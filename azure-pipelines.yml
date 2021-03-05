@@ -21,7 +21,6 @@ stages:
         command: buildAndPush
         buildContext: $(Build.Repository.LocalPath)
         repository: $(webRepository)
-        dockerfile: '$(Build.SourcesDirectory)/tailspin-space-game-app/Dockerfile'
         containerRegistry: 'tailspin-space-game-cr-connection'
         tags: |
           $(tag)
